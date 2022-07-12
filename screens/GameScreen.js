@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Text, StyleSheet, Alert, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Alert, ScrollView, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Card from "../components/Card";
 import NumberContainer from "../components/NumberContainer";
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     width: 300,
     maxWidth: "80%",
     justifyContent: "space-around",
-    marginTop: 20,
+    marginTop: Dimensions.get('window').height > 600 ? 20 : 10 ,
   },
   listItem:
   {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
   list:
   {
-    width:'80%',
+    width:Dimensions.get('window').width > 350 ? '80%' : '60%',
     flex:1
   }
 });

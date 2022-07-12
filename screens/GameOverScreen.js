@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, Image } from "react-native";
+import { View, Text, StyleSheet, Button, Image, Dimensions, ScrollView } from "react-native";
 import MainButton from "../components/MainButton";
 import Colors from "../constants/colors";
+import {MaterialIcons} from '@expo/vector-icons'
 const GameOverScreen = (props) => {
   return (
+    <ScrollView style={styles.scroll}>
     <View style={styles.screen}>
-      
       <View style={styles.imageContainer}>
         <Image
         fadeDuration={1000}
@@ -19,8 +20,9 @@ const GameOverScreen = (props) => {
       
       <MainButton
         onPress={props.onRestart}
-      >NEW GAME</MainButton>
+      >NEW GAME <MaterialIcons name="replay"  size={17} color="white" /></MainButton>
     </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -45,13 +47,13 @@ const styles = StyleSheet.create({
     width:'65%'
   },
   imageContainer: {
-    width: "80%",
-    height: 300,
-    borderRadius: 200,
-    borderWidth: 5,
+    width: Dimensions.get('window').width*0.7,
+    height: Dimensions.get('window').width*0.7,
+    borderRadius: Dimensions.get('window').width*0.7/2,
+    borderWidth: 7,
     borderColor: Colors.orange,
     overflow:'hidden',
-    marginVertical:15 
+    marginVertical:Dimensions.get('window').height/40
   },
   image: {
     width: '100%',
@@ -62,6 +64,11 @@ const styles = StyleSheet.create({
     color:Colors.orange,
     fontFamily:'open-sans-bold',
     fontSize:18
+  },
+  scroll:
+  {
+    backgroundColor:Colors.primary
   }
+ 
 });
 export default GameOverScreen;

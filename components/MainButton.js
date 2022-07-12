@@ -17,14 +17,13 @@ const styles = StyleSheet.create({
         backgroundColor:Colors.orange,
         paddingVertical:12,
         paddingHorizontal:30,
-        borderRadius:25
+        borderRadius:25,
     },
     buttonText:
     {
        color:'white',
        fontFamily:'open-sans',
-       fontSize:18
-
+       fontSize:18,
     }
 });
 export default MainButton;
